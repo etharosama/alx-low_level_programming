@@ -19,7 +19,7 @@ int main(void)
 		putchar((num % 10) + '0');
 		if (num == 9)
 			continue;
-		
+		/*here we print the seprater */
 		putchar(',');
 		putchar(' ');
 	}
