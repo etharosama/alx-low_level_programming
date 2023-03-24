@@ -7,7 +7,10 @@
  * @n: input
  * Return: n
  */
-void reset_to_98(int *n)
+int _isupper(int c)
 {
-	*n = 98;
+	if ((c >= 'A') && (c <= 'Z'))
+		return (1);
+	else
+		return (0);
 }
