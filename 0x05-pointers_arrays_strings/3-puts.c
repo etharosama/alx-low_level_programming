@@ -6,11 +6,15 @@
  * Description: this will return the length of a string
  * Return: 0 is success
  */
-int _strlen(char *s)
+void _puts(char *str)
 {
-	int a = 0;
+	int i = 0;
 
-	for (; *s++;)
-		a++;
-	return (a);
+	while (str[i] != '\0')
+	{
+		_putchar(str[i]);
+		i++;
+	}
+	_putchar('\n');
 }
+
