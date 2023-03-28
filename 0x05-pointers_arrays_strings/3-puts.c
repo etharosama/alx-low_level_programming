@@ -1,10 +1,10 @@
 #include "main.h"
+
 /**
- * _strlen - return the length of a string
- * Owned By Bwave
- * @s: char to check
- * Description: this will return the length of a string
- * Return: 0 is success
+ * _puts - prints a string
+ * @str: the string
+ *
+ * Return: the length of the string
  */
 void _puts(char *str)
 {
