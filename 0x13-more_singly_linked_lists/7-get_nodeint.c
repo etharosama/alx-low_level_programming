@@ -2,21 +2,18 @@
 
 /**
  * get_nodeint_at_index - returns the node at a certain index in a linked list
- * @head: first node in the linked list
+ * @head: pointer to the first node in the linked list
  * @index: index of the node to return
  *
- * Return: pointer to the node we're looking for, or NULL
+ * Return: pointer to the node at the specified index, or NULL if it doesn't exist
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	unsigned int i = 0;
-	listint_t *temp = head;
+    unsigned int i;
+    listint_t *temp;
 
-	while (temp && i < index)
-	{
-		temp = temp->next;
-		i++;
-	}
+    for (i = 0, temp = head; temp != NULL && i < index; i++, temp = temp->next)
+        ;
 
-	return (temp ? temp : NULL);
+    return (temp != NULL ? temp : NULL);
 }
