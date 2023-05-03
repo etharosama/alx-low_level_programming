@@ -9,31 +9,32 @@
 size_t free_listint_safe(listint_t **h)
 {
 	size_t len = 0;
-	listint_t *current, *tmp;
+	int diff;
+	listint_t *temp;
 
 	if (!h || !*h)
 		return (0);
 
 	while (*h)
 	{
-		current = *h;
-		*h = (*h)->next;
-		current->next = NULL;
-
-		/* check if the node has been freed already */
-		if (current < current->next)
+		diff = *h - (*h)->next;
+		if (diff > 0)
 		{
-			free(current);
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
 			len++;
 		}
 		else
 		{
-			/* loop detected, stop freeing */
+			free(*h);
 			*h = NULL;
 			len++;
 			break;
 		}
 	}
+
+	*h = NULL;
 
 	return (len);
 }
